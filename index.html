@@ -3,44 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini CLI Project</title>
+    <title>웰리힐리파크 - 사계절 복합 테마 리조트</title>
     <style>
+        :root {
+            --primary-color: #004a99;
+            --secondary-color: #00a0e9;
+            --accent-color: #f39c12;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551698618-1fed5d9655a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            color: var(--text-light);
             text-align: center;
+            padding: 0 20px;
         }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
         }
-        h1 { margin-bottom: 1rem; font-size: 2.5rem; }
-        p { font-size: 1.2rem; opacity: 0.9; }
-        .status {
-            margin-top: 2rem;
-            padding: 0.5rem 1rem;
-            background: #48bb78;
-            border-radius: 50px;
+
+        .info-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
             display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            padding: 20px;
+            border-radius: 10px;
+            background: #f1f7ff;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .feature-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .search-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #e9ecef;
+            border-radius: 10px;
+        }
+
+        .btn-google {
+            display: inline-block;
+            background-color: #4285F4;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
             font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-google:hover {
+            background-color: #357ae8;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello from Gemini CLI! 🚀</h1>
-        <p>성공적으로 배포된 첫 번째 프로젝트 페이지입니다.</p>
-        <div class="status">Live Online</div>
+
+<header>
+    <h1>WELLI HILLI PARK</h1>
+    <p>강원도 횡성의 청정 자연 속에서 즐기는 최고의 휴식과 레저</p>
+</header>
+
+<div class="container">
+    <div class="info-card">
+        <h2 class="section-title">리조트 소개</h2>
+        <p>웰리힐리파크는 해발 600m 무공해 청정지대인 강원도 횡성에 위치한 사계절 종합 휴양지입니다. 초보자부터 전문가까지 모두 만족시키는 스노우파크와 여름철 시원한 워터플래닛, 그리고 다양한 액티비티를 제공합니다.</p>
+        
+        <div class="features">
+            <div class="feature-item">
+                <h3>❄️ 스노우파크</h3>
+                <p>국제 수준의 하프파이프와 다양한 난이도의 슬로프를 갖춘 겨울 스포츠의 메카</p>
+            </div>
+            <div class="feature-item">
+                <h3>🌊 워터플래닛</h3>
+                <p>국내 최대 규모의 초대형 파도풀과 스릴 넘치는 어트랙션을 갖춘 워터파크</p>
+            </div>
+            <div class="feature-item">
+                <h3>⛳ 골프 & 레저</h3>
+                <p>해발 600m 고원의 상쾌함을 만끽할 수 있는 CC와 다양한 야외 레저 시설</p>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <h3>더 자세한 정보가 궁금하신가요?</h3>
+            <p>구글 검색을 통해 실시간 이용 정보와 후기를 확인해 보세요.</p>
+            <a href="https://www.google.com/search?q=웰리힐리파크" target="_blank" class="btn-google">
+                구글에서 웰리힐리파크 검색하기
+            </a>
+        </div>
     </div>
+</div>
+
+<footer>
+    &copy; 2026 Windows Vibe Lab - 웰리힐리파크 소개 페이지
+</footer>
+
 </body>
 </html>
