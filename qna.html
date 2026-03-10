@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임직원 전용 Q&A 게시판 | 웰리힐리파크</title>
+    <style>
+        :root {
+            --primary-color: #004a99;
+            --bg-color: #f4f7f9;
+            --text-color: #333;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -30px auto 50px;
+            padding: 0 20px;
+        }
+
+        .board-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .nav-back {
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-back a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .qna-item {
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .qna-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .qna-header:hover { background-color: #f9f9f9; }
+
+        .question-tag {
+            background: #e1ecf4;
+            color: #39739d;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+
+        .qna-content {
+            padding: 20px 40px;
+            background-color: #fcfcfc;
+            display: none;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .answer-box {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            color: #555;
+        }
+
+        .write-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .status-done { background: #d4edda; color: #155724; }
+        .status-wait { background: #fff3cd; color: #856404; }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>임직원 전용 Q&A 게시판</h1>
+    <p>웰리힐리파크 임직원분들의 소중한 의견에 답변해 드립니다.</p>
+</div>
+
+<div class="container">
+    <div class="board-card">
+        <div class="nav-back">
+            <a href="index.html">← 메인 페이지로 돌아가기</a>
+        </div>
+
+        <!-- 가상 데이터 1 -->
+        <div class="qna-item">
+            <div class="qna-header" onclick="toggleQna(1)">
+                <div>
+                    <span class="question-tag">복리후생</span>
+                    <strong>2026년 동계 시즌권 임직원 할인 발급 안내</strong>
+                </div>
+                <span class="status-badge status-done">답변완료</span>
+            </div>
+            <div id="qna-1" class="qna-content">
+                <div class="answer-box">
+                    안녕하세요, 인사팀입니다. 26/27 동계 시즌권 임직원 발급은 11월 15일부터 인트라넷을 통해 신청 접수 예정입니다. 본인 및 직계가족 1인까지 무료 발급 가능하며, 추가 가족은 50% 할인이 적용됩니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 가상 데이터 2 -->
+        <div class="qna-item">
+            <div class="qna-header" onclick="toggleQna(2)">
+                <div>
+                    <span class="question-tag">시설관리</span>
+                    <strong>기숙사 3동 공용 와이파이 속도 저하 건</strong>
+                </div>
+                <span class="status-badge status-done">답변완료</span>
+            </div>
+            <div id="qna-2" class="qna-content">
+                <div class="answer-box">
+                    IT지원팀입니다. 불편을 드려 죄송합니다. 현재 3동 기숙사 공유기 노후화로 인해 교체 작업이 진행 중입니다. 이번 주 금요일(3/13) 오후까지 모든 층의 장비 교체가 완료될 예정이오니 참고 부탁드립니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 가상 데이터 3 -->
+        <div class="qna-item">
+            <div class="qna-header" onclick="toggleQna(3)">
+                <div>
+                    <span class="question-tag">식당/급식</span>
+                    <strong>사내 식당 메뉴 구성 제안 (단백질 위주 식단 요청)</strong>
+                </div>
+                <span class="status-badge status-wait">검토중</span>
+            </div>
+            <div id="qna-3" class="qna-content">
+                <div class="answer-box">
+                    영양사 김웰리입니다. 소중한 의견 감사드립니다! 현재 운동 및 자기계발을 하시는 임직원분들을 위해 '샐러드 팩' 도입을 긍정적으로 검토 중입니다. 4월 식단부터 반영될 수 있도록 노력하겠습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 가상 데이터 4 -->
+        <div class="qna-item">
+            <div class="qna-header" onclick="toggleQna(4)">
+                <div>
+                    <span class="question-tag">기타</span>
+                    <strong>워터플래닛 비수기 주말 이용 가능 여부</strong>
+                </div>
+                <span class="status-badge status-done">답변완료</span>
+            </div>
+            <div id="qna-4" class="qna-content">
+                <div class="answer-box">
+                    운영기획팀입니다. 현재 워터플래닛은 비수기 주말(토, 일) 10:00 ~ 17:00 정상 운영됩니다. 사원증 지참 시 무료 입장 가능하며, 동반인은 제휴 카드 할인율과 동일하게 적용됩니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="write-btn" onclick="alert('데모 페이지입니다. 실제 글쓰기는 사내 인트라넷을 이용해 주세요!')">질문 등록하기</a>
+
+<script>
+    function toggleQna(id) {
+        const content = document.getElementById('qna-' + id);
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
